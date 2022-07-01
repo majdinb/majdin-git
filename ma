@@ -1,4 +1,5 @@
-ovo je prva promjena na mainu 
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzovo je prva promjena na mainu 
 mjenj
 hhhhhhhhhhhhhhh
 kkkkkkkkkkk
