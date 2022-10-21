@@ -1,0 +1,10 @@
+---
+- name: Instal and configure tomcat9 using ansible
+  hosts: ansible_client
+  remote_user: root
+  become: true
+  tasks:
+  - name: Upgrade all packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
