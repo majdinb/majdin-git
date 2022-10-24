@@ -8,4 +8,4 @@
     ansible.builtin.yum:
       name: '*'
       state: latest
-      
+      12
