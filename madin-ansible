@@ -1,20 +1,33 @@
 ---
-- name: Instal and configure tomcat9 using ansible
-  hosts: ansible_client
-  remote_user: root
-  become: true
-  tasks:
-  - name: update all packages - this is like running the 'yum update' command
-    yum:
-      name: "*"
-      state: latest
-  - name: install openjdk11
-    yum:
-      name: java-openjdk
-      state: latest
-  - name: Create a Tomcat User
-    user:
-      name: tomcat
-  - name: Create a Tomcat Group
-    group:
-      name: tomcat
+ - name: Instal and configure tomcat9 using ansible
+   hosts: ansible_client
+   remote_user: root
+   become: true
+   tasks:
+   - name: update all packages - this is like running the 'yum update' command
+     yum:
+       name: "*"
+       state: latest
+   - name: install openjdk11
+     yum:
+       name: java-openjdk
+       state: latest
+   - name: Create a Tomcat User
+     user:
+       name: tomcat
+   - name: Create a Tomcat Group
+     group:
+       name: tomcat
+   - name: downloading tomcat
+     get_url:
+       url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.tar.gz"
+       dest: /etc
+   - name: extract tomcat
+     unarchive:
+       src: "/etc/apache-tomcat-9.0.68.tar.gz"
+       dest: /etc
+       remote_src: yes
+   - name: renaming tomcat home
+     command: mv /etc/apache-tomcat-9.0.68.tar.gz /etc/tomcat
+   - name: starting tomcat
+     shell: nohup /etc/tomcat/bin/startup.sh &
