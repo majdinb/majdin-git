@@ -4,8 +4,11 @@
   remote_user: root
   become: true
   tasks:
-  - name: Upgrade all packages
-    ansible.builtin.yum:
-      name: '*'
+  - name: update all packages - this is like running the 'yum update' command
+    yum:
+      name: "*"
       state: latest
-      
+  - name: install openjdk11
+    yum:
+      name: java-openjdk
+      state: latest
