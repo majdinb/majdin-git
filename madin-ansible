@@ -12,3 +12,9 @@
     yum:
       name: java-openjdk
       state: latest
+  - name: Create a Tomcat User
+    user:
+      name: tomcat
+  - name: Create a Tomcat Group
+    group:
+      name: tomcat
